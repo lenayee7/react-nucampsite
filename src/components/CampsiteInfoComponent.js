@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle, Breadcrumb, BreadcrumbItem, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 function RenderCampsite({campsite}) {
@@ -48,6 +48,10 @@ function CampsiteInfo(props) {
                     <RenderCampsite campsite={props.campsite} />
                     <RenderComments comments={props.comments} />
                 </div>
+                <div>
+                    <Button outline><i className="fa fa-pencil fa-lg " /></Button>
+                </div>
+                
             </div>
         );
     }
