@@ -182,18 +182,11 @@ export const addPartners = partners => ({
     payload: partners
 });
 
-export const postFeedback = (campsiteId, firstName, lastName, feedback) => dispatch => {
-    
-        const newFeedback = {
-            campsiteId:campsiteId,
-            firstname: firstName,
-            lastname:lastName,
-            feedback: feedback
-        }
+export const postFeedback = (values) => () => {
     
     return fetch(baseUrl + 'feedback', {
         method: "POST",
-        body: JSON.stringify(newFeedback),
+        body: JSON.stringify(values),
         headers: {
           "Content-Type": "application/json"
         },
@@ -212,7 +205,7 @@ export const postFeedback = (campsiteId, firstName, lastName, feedback) => dispa
         .then(response => response.json())
         .then(response => { 
             console.log('Feedback: ', response); 
-            alert('Thank you for your feedback!\n' + JSON.stringify(newFeedback));
+            alert('Thank you for your feedback!\n' + JSON.stringify(values));
         })
         .catch(error =>  { 
             console.log('Feedback: ', error.message);
